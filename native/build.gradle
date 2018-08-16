@@ -17,23 +17,35 @@ repositories {
 
 apply plugin: 'kotlin-platform-native'
 
+configurations {
+    compilerPlugin
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
+    compilerPlugin "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin-unshaded:$serialization_plugin_version"
+}
+
+def pluginPath = configurations.compilerPlugin.files.first().canonicalPath
+def pluginArgument = '-Xplugin=' + pluginPath
+// println(pluginArgument)
+
+
 sourceSets.main {
-    kotlin.srcDirs = ['src/'/*, '../common/src/main/kotlin'*/]
+    kotlin.srcDirs = ['src/', '../common/src/main/kotlin']
 
     component {
         outputKinds = [KLIBRARY]
+        extraOpts pluginArgument
         target 'host'
     }
 }
 
 sourceSets.test {
-    kotlin.srcDirs = ['test/'/*, '../common/src/test/kotlin'*/]
+    kotlin.srcDirs = ['test/', '../common/src/test/kotlin']
 
     component {
+        extraOpts pluginArgument
         target 'host'
     }
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
 }

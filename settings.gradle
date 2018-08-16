@@ -1,4 +1,5 @@
 rootProject.name = 'KotlinSerializationPlayground'
+enableFeaturePreview('GRADLE_METADATA')
 
 include 'common'
 include 'jvm'

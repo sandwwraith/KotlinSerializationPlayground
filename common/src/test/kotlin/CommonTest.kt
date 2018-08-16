@@ -21,8 +21,8 @@ class CommonTest {
 
     @Test
     fun isomorphicCbor() {
-        val zoo = Common().getZoo()
-        val serial = Zoo.serializer()
+        val zoo = Common().getShop()
+        val serial = Shop.serializer()
         val zoo2 = CBOR.load(serial, CBOR.dump(serial, zoo))
         assertTrue(zoo !== zoo2)
         assertEquals(zoo, zoo2)
