@@ -1,0 +1,39 @@
+buildscript {
+    ext.serializationRepo = "https://dl.bintray.com/sandwwraith/libs-preview/"
+
+    repositories {
+        jcenter()
+        maven { url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:0.9-dev-3210"
+    }
+}
+
+repositories {
+    maven { url serializationRepo }
+}
+
+apply plugin: 'kotlin-platform-native'
+
+sourceSets.main {
+    kotlin.srcDirs = ['src/'/*, '../common/src/main/kotlin'*/]
+
+    component {
+        outputKinds = [KLIBRARY]
+        target 'host'
+    }
+}
+
+sourceSets.test {
+    kotlin.srcDirs = ['test/'/*, '../common/src/test/kotlin'*/]
+
+    component {
+        target 'host'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
+}

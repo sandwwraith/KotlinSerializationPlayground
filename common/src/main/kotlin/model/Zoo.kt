@@ -9,8 +9,8 @@ enum class Attitude { POSITIVE, NEUTRAL, NEGATIVE }
 @Serializable
 data class IntData(val intV: Int)
 
-@Serializable
-data class Tree(val name: String, val left: Tree? = null, val right: Tree? = null)
+//@Serializable
+//data class Tree(val name: String, val left: Tree? = null, val right: Tree? = null)
 
 @Serializable
 data class Zoo(
@@ -45,7 +45,7 @@ data class Zoo(
     val listListEnumN: List<List<Attitude?>>,
     val listIntData: List<IntData>,
     val listIntDataN: List<IntData?>,
-    val tree: Tree,
+//    val tree: Tree,
     val mapStringInt: Map<String,Int>,
     val mapIntStringN: Map<Int,String?>,
     val arrays: ZooWithArrays
@@ -75,7 +75,7 @@ val zoo = Zoo(
     listOf(listOf(Attitude.NEGATIVE, null)),
     listOf(IntData(1), IntData(2), IntData(3)),
     listOf(IntData(1), null, IntData(3)),
-    Tree("root", Tree("left"), Tree("right", Tree("right.left"), Tree("right.right"))),
+//    Tree("root", Tree("left"), Tree("right", Tree("right.left"), Tree("right.right"))),
     mapOf("one" to 1, "two" to 2, "three" to 3),
     mapOf(0 to null, 1 to "first", 2 to "second"),
     ZooWithArrays(
