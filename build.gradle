@@ -7,7 +7,7 @@ subprojects {
     buildscript {
         repositories {
             jcenter()
-//        mavenLocal()
+            mavenLocal()
             maven { url "http://kotlin.bintray.com/kotlinx" }
             maven { url "http://kotlin.bintray.com/kotlin-eap" }
             maven { url "http://kotlin.bintray.com/kotlin-dev" }
@@ -23,7 +23,7 @@ subprojects {
 
     repositories {
         jcenter()
-//        mavenLocal()
+        mavenLocal()
         maven { url "http://kotlin.bintray.com/kotlinx" }
         maven { url "http://kotlin.bintray.com/kotlin-eap" }
         maven { url "http://kotlin.bintray.com/kotlin-dev" }

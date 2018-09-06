@@ -4,6 +4,7 @@ import kotlinx.serialization.protobuf.ProtoBuf
 import model.*
 import kotlin.test.*
 
+@Ignore
 class CommonTest {
     @Test
     fun sanityCheck() {
