@@ -1,3 +1,5 @@
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JSON
 import model.*
 
@@ -12,3 +14,6 @@ class Common {
         return greeting() + "\n" + jsonShop
     }
 }
+
+@Serializable
+data class WithName(@SerialName("description") val descriptionText: String)
