@@ -4,15 +4,19 @@ buildscript {
     repositories {
         jcenter()
         maven { url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
+        maven { url "http://kotlin.bintray.com/kotlin-dev" }
+        maven { url "http://kotlin.bintray.com/kotlinx" }
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:0.9-dev-3210"
+        classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:${property("konan_version")}"
     }
 }
 
 repositories {
     maven { url serializationRepo }
+    maven { url "http://kotlin.bintray.com/kotlin-dev" }
+    maven { url "http://kotlin.bintray.com/kotlinx" }
 }
 
 apply plugin: 'kotlin-platform-native'
