@@ -17,6 +17,7 @@ repositories {
     maven { url serializationRepo }
     maven { url "http://kotlin.bintray.com/kotlin-dev" }
     maven { url "http://kotlin.bintray.com/kotlinx" }
+    mavenLocal()
 }
 
 apply plugin: 'kotlin-platform-native'
@@ -28,7 +29,7 @@ configurations {
 dependencies {
     expectedBy project(':common')
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
-    compilerPlugin "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin-unshaded:$serialization_plugin_version"
+    compilerPlugin "org.jetbrains.kotlin:kotlin-serialization-unshaded:$serialization_plugin_version"
 }
 
 def pluginPath = configurations.compilerPlugin.files.first().canonicalPath
@@ -47,6 +48,7 @@ sourceSets.main {
 }
 
 sourceSets.test {
+    kotlin.srcDirs = ['test/']
     component {
         extraOpts pluginArgument
         target 'host'

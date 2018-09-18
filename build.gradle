@@ -7,27 +7,27 @@ subprojects {
     buildscript {
         repositories {
             jcenter()
-//        mavenLocal()
             maven { url "http://kotlin.bintray.com/kotlinx" }
             maven { url "http://kotlin.bintray.com/kotlin-eap" }
             maven { url "http://kotlin.bintray.com/kotlin-dev" }
             maven { url "https://plugins.gradle.org/m2/" }
             maven { url "https://dl.bintray.com/sandwwraith/libs-preview/"}
+            mavenLocal()
         }
         dependencies {
             classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-            classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:$serialization_plugin_version"
+            classpath "org.jetbrains.kotlin:kotlin-serialization:$serialization_plugin_version"
             classpath "com.moowork.gradle:gradle-node-plugin:$gradle_node_version"
         }
     }
 
     repositories {
         jcenter()
-//        mavenLocal()
         maven { url "http://kotlin.bintray.com/kotlinx" }
         maven { url "http://kotlin.bintray.com/kotlin-eap" }
         maven { url "http://kotlin.bintray.com/kotlin-dev" }
         maven { url "https://dl.bintray.com/sandwwraith/libs-preview/"}
+        mavenLocal()
     }
 
     tasks.withType(Test) {
