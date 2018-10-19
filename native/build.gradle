@@ -24,7 +24,7 @@ repositories {
 }
 
 apply plugin: 'kotlin-platform-native'
-//apply plugin: 'kotlinx-serialization'
+apply plugin: 'kotlinx-serialization-native'
 
 configurations {
     compilerPlugin
@@ -46,7 +46,7 @@ sourceSets.main {
 
     component {
         outputKinds = [KLIBRARY]
-        extraOpts pluginArgument
+//        extraOpts pluginArgument
         target 'host'
     }
 }
@@ -54,7 +54,7 @@ sourceSets.main {
 sourceSets.test {
     kotlin.srcDirs = ['test/']
     component {
-        extraOpts pluginArgument
+//        extraOpts pluginArgument
         target 'host'
     }
 }
