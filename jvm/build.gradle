@@ -1,4 +1,5 @@
 apply plugin: 'kotlin-platform-jvm'
+apply plugin: 'kotlinx-serialization'
 
 dependencies {
     expectedBy project(':common')
